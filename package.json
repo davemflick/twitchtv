@@ -1,0 +1,22 @@
+{
+  "name": "twitchtv",
+  "version": "1.0.0",
+  "description": "Free Code Camp Challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davemflick/twitchtv.git"
+  },
+  "author": "David Flick, Nick Burton",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davemflick/twitchtv/issues"
+  },
+  "homepage": "https://github.com/davemflick/twitchtv#readme",
+  "dependencies": {
+    "webpack": "^1.14.0"
+  }
+}
