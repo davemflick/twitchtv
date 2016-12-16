@@ -1,4 +1,41 @@
 * {box-sizing: border-box;}
 body {
 	text-align: center;
+	background: #ccc;
+}
+h1{
+	color: white;
+}
+
+#streamer {
+	margin:10px auto 10px auto;
+	width: 60%;
+	height: auto;
+	background: rgba(255,255,255, .5);
+	border: 1px solid black;
+	text-align: left;
+}
+#listed{
+	list-style: none;
+	vertical-align: middle;
+	display: block;
+}
+#logoImg {
+	height: 35px;
+	width: 35px;
+	margin: 10px;
+	border-radius: 50%;
+	border: 1px solid black;
+	clear: right;
+}
+#urlLink {
+	text-decoration: none;
+	font-size: 1.3em;
+}
+#logoImg, #urlLink{
+	vertical-align: middle;
+}
+#liveNow {
+	font-size: 0.5em;
+	color: red;
 }
