@@ -2,10 +2,15 @@ const $ = require('jquery');
 
 $(document).ready(function(){
 
+
 let urlStreams = 'https://wind-bow.gomix.me/twitch-api/streams/';
 let urlChannels = 'https://wind-bow.gomix.me/twitch-api/channels/';
 let callback = '?callback=?';
 let username = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "MedryBW"];
+
+let search = $('#search').val('');
+let searchChan= urlChannels+search+callback;
+
 
 
 let listLink = '';
@@ -30,29 +35,13 @@ for (let i=0; i<username.length; i++){
 		let linkUrl = data.url;
 		let logoUrl = data.logo;
   $streamList.append(`<li id="listed"><img id="logoImg" src="${logoUrl}" alt=""><a id="urlLink" href="${linkUrl}" target="_blank">`+username[i]+`</a></li>`);
-})
-}
-})
-}
-});
+}) //ends third get.json
+} // ends if/else
+}) //ends first get.json
+} // ends for loop
 
 
-// $streamList.append('<li>'+username[i]+'</li>');
-
-
-
-
-// $.getJSON(urlChannels + 'freecodecamp' + callback, function(data) {
-//   console.log(data);
-// });
-
-
-
-
-
-// 'https://wind-bow.gomix.me/twitch-api/streams/freecodecamp?callback=?'
-
-
+}); // ends doc.Ready(func)
 
 
 
