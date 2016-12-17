@@ -11,6 +11,17 @@ h1{
 	text-shadow: 3px 3px #6441a5;
 	font-size: 3em;
 }
+input{text-align: center;}
+#search{
+color: #6441a5;
+border: 1px solid #6441a5;
+height: 30px;
+}
+#submit-btn{
+	border: 1px solid #6441a5;
+	color: #6441a5;
+	height: 30px;
+}
 
 .tabs{
 	width:60%;
@@ -77,6 +88,9 @@ h1{
 	list-style: none;
 	vertical-align: middle;
 	display: block;
+	overflow-x:scroll;
+	white-space: nowrap;
+	padding-right: 5px;
 }
 #logoImg {
 	height: 40px;
@@ -98,6 +112,32 @@ h1{
 	font-size: 0.7em;
 	color: #FFFCD0;
 }
+
+iframe{ 
+	border: 2px solid #6441a5;
+ }
+
+
+@media (max-width: 600px) {
+	#urlLink {font-size: 1.1em;}
+	#LiveNow {font-size: 0.6em;}
+	#logoImg{height: 35px;
+		widows: 35px}
+	.tabs{width: 90%;}
+}
+@media (min-width: 601px) and (max-width: 870px){
+	.tabs{width:80%;}
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -37,7 +37,7 @@ for (let i=0; i<username.length; i++){
 		let $streamList = $('#streamList');
 		let linkUrl = data.url;
 		let logoUrl = data.logo;
-  $streamList.append(`<li id="listed"><img id="logoImg" src="${logoUrl}" alt=""><a id="urlLink" href="${linkUrl}" target="_blank">`+username[i]+`<span id="liveNow">  Is Streaming "${data.game}" Live Now!<span></a></li>`);
+  $streamList.append(`<li id="listed"><img id="logoImg" src="${logoUrl}" alt=""><a id="urlLink" href="${linkUrl}" target="_blank">`+username[i]+`<span id="liveNow">Is Streaming "${data.game}" Live Now!<span></a></li>`);
 })} else{
 	$.getJSON(listLink, (data)=> {
 		// console.log(data);
