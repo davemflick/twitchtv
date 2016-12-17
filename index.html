@@ -10,10 +10,14 @@
 <h1>Twitch</h1>
 
 <div class='container'>
-<form id="form">
-	<input id='search' type='search' name='search' value=''>
-	<input id='submit' type='submit' value="search">
-</form>
+ <form id="form-container" class="form-container">
+        <label for="search"></label><input type="search" id="search" placeholder="Twitch Channel" name='search' value="">
+        <button id="submit-btn">Submit</button>
+    </form>
+
+<div class="search-container">
+	<p id='fail'></p>
+</div>
 
 	<div class='streamer-container' id='streamer'>
 	<ul id='streamList'>

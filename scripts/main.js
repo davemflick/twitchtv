@@ -1,16 +1,12 @@
 const $ = require('jquery');
 
-$(document).ready(function(){
+
 
 
 let urlStreams = 'https://wind-bow.gomix.me/twitch-api/streams/';
 let urlChannels = 'https://wind-bow.gomix.me/twitch-api/channels/';
 let callback = '?callback=?';
-let username = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "MedryBW"];
-
-let search = $('#search').val('');
-let searchChan= urlChannels+search+callback;
-
+let username = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "MedryBW", "brunofin"];
 
 
 let listLink = '';
@@ -19,7 +15,7 @@ for (let i=0; i<username.length; i++){
 	listLink = urlChannels+username[i]+callback;
 	listOn = urlStreams+username[i]+callback;
 	$.getJSON(listOn, (data)=>{
-		// console.log();
+		// console.log(data);
 		listLink = urlChannels+username[i]+callback;
 		if(data.stream != null){
 			$.getJSON(listLink, (data)=> {
@@ -28,24 +24,56 @@ for (let i=0; i<username.length; i++){
 		let linkUrl = data.url;
 		let logoUrl = data.logo;
   $streamList.append(`<li id="listed"><img id="logoImg" src="${logoUrl}" alt=""><a id="urlLink" href="${linkUrl}" target="_blank">`+username[i]+`<span id="liveNow">  Is Streaming Live Now!<span></a></li>`);
-})} else {
+})} else{
 	$.getJSON(listLink, (data)=> {
-		// console.log();
+		// console.log(data);
 		let $streamList = $('#streamList');
 		let linkUrl = data.url;
 		let logoUrl = data.logo;
-  $streamList.append(`<li id="listed"><img id="logoImg" src="${logoUrl}" alt=""><a id="urlLink" href="${linkUrl}" target="_blank">`+username[i]+`</a></li>`);
+		let errorUrl= 'http://errorlogz.com/wp-content/uploads/2015/08/no-error-300x300.jpg';
+		if(data.status != 404)
+  {$streamList.append(`<li id="listed"><img id="logoImg" src="${logoUrl}" alt=""><a id="urlLink" href="${linkUrl}" target="_blank">`+username[i]+`</a></li>`)}
+  else {$streamList.append(`<li id="listed"><img id="logoImg" src="${errorUrl}" alt=""><a id="urlLink" href="#" target="_blank">`+username[i]+`<span id="liveNow"> Unidentified Streamer<span></a></li>`)}
 }) //ends third get.json
 } // ends if/else
 }) //ends first get.json
 } // ends for loop
 
+$('#form-container').submit(function loadData(){
+let urlStreams = 'https://wind-bow.gomix.me/twitch-api/streams/';
+let urlChannels = 'https://wind-bow.gomix.me/twitch-api/channels/';
+let callback = '?callback=?';
+let searching = $("#search").val();
+let searchStream= urlStreams+searching+callback;
+let searchChan= urlChannels+searching+callback;
+$.getJSON(searchStream, (data)=>{
+	if(data.stream != null){
+		$.getJSON(searchChan, (data)=>{
+		let linkUrl = data.url;
+		let logoUrl = data.logo;
+  $('.search-container').append(`<img id="logoImg" src="${logoUrl}" alt=""><a id="urlLink" href="${linkUrl}" target="_blank">`+searching+`<span id="liveNow">  Is Streaming Live Now!<span></a>`);
+	})}else{
+$.getJSON(searchChan, (data)=>{
+	let linkUrl = data.url;
+	let logoUrl = data.logo;
+	if(data.status != 404)
+		{$('.search-container').append(`<img id="logoImg" src="${logoUrl}" alt=""><a id="urlLink" href="${linkUrl}" target="_blank">`+searching+`<span id="liveNow"> Currently Offline<span></a>`)} 
+		else{$('#fail').text(`Your search was a complete failure, try something else or GTFO!`)}
+	})
+}
+}) //end of getJson(searchChan)
+//ends getJson(searchStream)
+return false;
+});
 
-}); // ends doc.Ready(func)
+
+
+
+
 
 
 
 
 
 // Array of Twitch.tv usernames who regularly stream
-// ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"]
+// ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"];
