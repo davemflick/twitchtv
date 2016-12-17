@@ -109,8 +109,8 @@ $.getJSON(searchChan, (data)=>{
 	let logoUrl = data.logo;
 	if(data.status != 404 && data.status!=403)
 		{$('.search-container').html(`<img id="logoImg" src="${logoUrl}" alt=""><a id="urlLink" href="${linkUrl}" target="_blank">`+searching+`<span id="liveNow"> Currently Offline<span></a>`)}
-		else if(data.status===403){$('.search-container').html(`<p>Try inputting something first...</p><iframe src="https://giphy.com/embed/l0G18lMKSLQ4wXToI" width="240" height="104" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>`)} 
-		else{$('.search-container').html(`<p>That doesn't exist...</p><iframe src="https://giphy.com/embed/TPHInhuZEEdBS" width="240" height="155" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>`)}
+		else if(data.status===403){$('.search-container').html(`<p>Try inputting something first...</p><iframe src="//giphy.com/embed/l0G18lMKSLQ4wXToI" width="240" height="104" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="http://giphy.com/gifs/movie-the-rock-michael-bay-l0G18lMKSLQ4wXToI"></a></p>`)} 
+		else{$('.search-container').html(`<p>That doesn't exist...</p><iframe src="//giphy.com/embed/HteV6g0QTNxp6" width="240" height="133" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="http://giphy.com/gifs/HteV6g0QTNxp6"></a></p>`)}
 	})
 }
 })
