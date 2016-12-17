@@ -1,19 +1,18 @@
 const $ = require('jquery');
 
 
-
-
 const urlStreams = 'https://wind-bow.gomix.me/twitch-api/streams/';
 const urlChannels = 'https://wind-bow.gomix.me/twitch-api/channels/';
 const callback = '?callback=?';
 const username = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "MedryBW", "YourMammasFace"];
 
-
+//Allows you to switch between tabs
     $('.tabs .tab-links a').on('click', function(e)  {
         var currentAttrValue = $(this).attr('href');
  
         // Show/Hide Tabs
-        $('.tabs ' + currentAttrValue).show().siblings().hide();
+        $('.tabs ' + currentAttrValue).siblings().slideUp(500);
+        $('.tabs ' + currentAttrValue).delay(300).slideDown(500);
  
         // Change/remove current tab to active
         $(this).parent('li').addClass('active').siblings().removeClass('active');
@@ -120,10 +119,3 @@ return false;
 
 
 
-
-
-
-
-
-// Array of Twitch.tv usernames who regularly stream
-// ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"];

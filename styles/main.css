@@ -1,8 +1,10 @@
 * {box-sizing: border-box;}
+html{height: 100%}
 body {
 	text-align: center;
 	background: #aaa;
 	font-family: 'Aref Ruqaa', serif;
+	min-height: 100%;
 }
 
 
@@ -112,6 +114,7 @@ height: 30px;
 	font-size: 0.7em;
 	color: #FFFCD0;
 }
+
 
 iframe{ 
 	border: 2px solid #6441a5;
