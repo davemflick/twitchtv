@@ -6,7 +6,7 @@ const $ = require('jquery');
 const urlStreams = 'https://wind-bow.gomix.me/twitch-api/streams/';
 const urlChannels = 'https://wind-bow.gomix.me/twitch-api/channels/';
 const callback = '?callback=?';
-const username = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "MedryBW", "brunofin"];
+const username = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "MedryBW", "YourMammasFace"];
 
 
     $('.tabs .tab-links a').on('click', function(e)  {
@@ -110,8 +110,8 @@ $.getJSON(searchChan, (data)=>{
 	let logoUrl = data.logo;
 	if(data.status != 404 && data.status!=403)
 		{$('.search-container').html(`<img id="logoImg" src="${logoUrl}" alt=""><a id="urlLink" href="${linkUrl}" target="_blank">`+searching+`<span id="liveNow"> Currently Offline<span></a>`)}
-		else if(data.status===403){$('.search-container').html(`<p>You didn't input anything numb nuts...</p>`)} 
-		else{$('.search-container').html(`<p>Your search was a complete failure, try something else or GTFO!</p>`)}
+		else if(data.status===403){$('.search-container').html(`<p>Try inputting something first...</p><iframe src="//giphy.com/embed/l0G18lMKSLQ4wXToI" width="240" height="104" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>`)} 
+		else{$('.search-container').html(`<p>That doesn't exist...</p><iframe src="//giphy.com/embed/TPHInhuZEEdBS" width="240" height="155" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>`)}
 	})
 }
 })

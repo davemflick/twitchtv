@@ -1,10 +1,15 @@
 * {box-sizing: border-box;}
 body {
 	text-align: center;
-	background: #ccc;
+	background: #aaa;
+	font-family: 'Aref Ruqaa', serif;
 }
+
+
 h1{
 	color: white;
+	text-shadow: 3px 3px #6441a5;
+	font-size: 3em;
 }
 
 .tabs{
@@ -13,6 +18,9 @@ h1{
 }
 /*----- Tab Links -----*/
     /* Clearfix */
+    .tab-links {
+    	margin-bottom: 0;}
+
     .tab-links:after {
         display:block;
         clear:both;
@@ -20,25 +28,27 @@ h1{
     }
  
     .tab-links li {
-        margin:0px 5px;
-        float:left;
+        margin:0px 2px;
+        float:right;
         list-style:none;
+
     }
  
         .tab-links a {
             padding:9px 15px;
             display:inline-block;
-            border-radius:3px 3px 0px 0px;
-            background:#7FB5DA;
+            border-radius:10px 10px 0px 0px;
+            background:#6441a5;
             font-size:16px;
             font-weight:600;
-            color:#4c4c4c;
+            color: white;
             transition:all linear 0.15s;
+            text-decoration: none;
         }
  
         .tab-links a:hover {
             background:#a7cce5;
-            text-decoration:none;
+            text-decoration:underline;
         }
  
     li.active a, li.active a:hover {
@@ -56,11 +66,11 @@ h1{
 
 
 #streamer {
-	margin:10px auto 10px auto;
+	margin:0px auto 10px auto;
 	width: 100%;
 	height: auto;
-	background: rgba(255,255,255, .5);
-	border: 1px solid black;
+	background: rgba(100,65,165, .3);
+	border: 1px solid #6441a5;
 	text-align: left;
 }
 #listed{
@@ -69,8 +79,8 @@ h1{
 	display: block;
 }
 #logoImg {
-	height: 35px;
-	width: 35px;
+	height: 40px;
+	width: 40px;
 	margin: 10px;
 	border-radius: 50%;
 	border: 1px solid black;
@@ -79,11 +89,15 @@ h1{
 #urlLink {
 	text-decoration: none;
 	font-size: 1.3em;
+	color: white;
 }
 #logoImg, #urlLink{
 	vertical-align: middle;
 }
 #liveNow {
-	font-size: 0.5em;
-	color: red;
+	font-size: 0.7em;
+	color: #FFFCD0;
 }
+
+
+
