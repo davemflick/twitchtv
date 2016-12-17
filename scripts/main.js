@@ -3,10 +3,24 @@ const $ = require('jquery');
 
 
 
-let urlStreams = 'https://wind-bow.gomix.me/twitch-api/streams/';
-let urlChannels = 'https://wind-bow.gomix.me/twitch-api/channels/';
-let callback = '?callback=?';
-let username = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "MedryBW", "brunofin"];
+const urlStreams = 'https://wind-bow.gomix.me/twitch-api/streams/';
+const urlChannels = 'https://wind-bow.gomix.me/twitch-api/channels/';
+const callback = '?callback=?';
+const username = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "MedryBW", "brunofin"];
+
+
+    $('.tabs .tab-links a').on('click', function(e)  {
+        var currentAttrValue = $(this).attr('href');
+ 
+        // Show/Hide Tabs
+        $('.tabs ' + currentAttrValue).show().siblings().hide();
+ 
+        // Change/remove current tab to active
+        $(this).parent('li').addClass('active').siblings().removeClass('active');
+ 
+        e.preventDefault();
+    });
+
 
 //THIS IS FOR THE PRE-PLACED STREAMER CONTAINER
 let listLink = '';
@@ -33,11 +47,47 @@ for (let i=0; i<username.length; i++){
 		let errorUrl= 'http://errorlogz.com/wp-content/uploads/2015/08/no-error-300x300.jpg';
 		if(data.status != 404)
   {$streamList.append(`<li id="listed"><img id="logoImg" src="${logoUrl}" alt=""><a id="urlLink" href="${linkUrl}" target="_blank">`+username[i]+`</a></li>`)}
-  else {$streamList.append(`<li id="listed"><img id="logoImg" src="${errorUrl}" alt=""><a id="urlLink" href="#" target="_blank">`+username[i]+`<span id="liveNow"> Unidentified Streamer<span></a></li>`)}
+  else {$streamList.append(`<li id="listed"><img id="logoImg" src="${errorUrl}" alt=""><a id="urlLink" href="#" target="_blank">`+username[i]+`<span id="liveNow"> Unidentified Streamer, does not exist!<span></a></li>`)}
 }) //ends third get.json
 } // ends if/else
 }) //ends first get.json
 } // ends for loop
+
+//LIVE LINK TAB
+
+
+for (let i=0; i<username.length; i++){
+	listLink = urlChannels+username[i]+callback;
+	listOn = urlStreams+username[i]+callback;
+	$.getJSON(listOn, (data)=>{
+		// console.log(data);
+		listLink = urlChannels+username[i]+callback;
+		if(data.stream != null){
+			$.getJSON(listLink, (data)=> {
+		// console.log(data);
+		let $streamListOn = $('#streamListOn');
+		let linkUrl = data.url;
+		let logoUrl = data.logo;
+  $streamListOn.append(`<li id="listed"><img id="logoImg" src="${logoUrl}" alt=""><a id="urlLink" href="${linkUrl}" target="_blank">`+username[i]+`<span id="liveNow">  Is Streaming "${data.game}" Live Now!<span></a></li>`);
+})}
+})};
+
+//OFFLINE TAB
+for (let i=0; i<username.length; i++){
+	listLink = urlChannels+username[i]+callback;
+	$.getJSON(listLink, (data)=> {
+		// console.log(data);
+		let $streamListOff = $('#streamListOff');
+		let linkUrl = data.url;
+		let logoUrl = data.logo;
+		let errorUrl= 'http://errorlogz.com/wp-content/uploads/2015/08/no-error-300x300.jpg';
+		if(data.status != 404)
+  {$streamListOff.append(`<li id="listed"><img id="logoImg" src="${logoUrl}" alt=""><a id="urlLink" href="${linkUrl}" target="_blank">`+username[i]+`</a></li>`)}
+  else {$streamListOff.append(`<li id="listed"><img id="logoImg" src="${errorUrl}" alt=""><a id="urlLink" href="#" target="_blank">`+username[i]+`<span id="liveNow"> Unidentified Streamer, does not exist!<span></a></li>`)}
+})
+};
+
+
 
 
 // THIS IS FOR THE SEARCH CONTAINER

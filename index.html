@@ -16,16 +16,46 @@
     </form>
 
 <div class="search-container">
+</div>
+
+<div class="tabs">
+    <ul class="tab-links">
+        <li class="active"><a href="#tab1">All</a></li>
+        <li><a href="#tab2">Live</a></li>
+        <li><a href="#tab3">Offline</a></li>
+    </ul>
+ <div class="tab-content">
+       <!--  ALL TAB -->
+       <div id="tab1" class="tab active">
+        <div class='streamer-container' id='streamer'>
+			<ul id='streamList'>
+			</ul>
+		</div>
+       </div>
+ 		<!-- LIVE TAB -->
+       <div id="tab2" class="tab">
+        <div class='streamer-container' id='streamer'>
+	        <ul id='streamListOn'>
+	        </ul>
+		</div>
+       </div>
+ 		<!-- OFFLINE TAB -->
+        <div id="tab3" class="tab">
+         <div class='streamer-container' id='streamer'>
+			<ul id='streamListOff'>
+			</ul>
+		 </div>
+        </div>
+ 
+    </div>
+</div>
+	
+
+
+
 	
 </div>
 
-	<div class='streamer-container' id='streamer'>
-	<ul id='streamList'>
-		
-	</ul>
-		
-	</div>
-</div>
 
 <script src="scripts/main.min.js"></script>
 </body>
